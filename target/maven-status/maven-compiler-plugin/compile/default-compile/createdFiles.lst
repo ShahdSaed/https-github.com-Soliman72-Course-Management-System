@@ -1,0 +1,9 @@
+com\mycompany\coursemanagement\Admin.class
+com\mycompany\coursemanagement\Assignment.class
+com\mycompany\coursemanagement\Student.class
+com\mycompany\coursemanagement\Teacher.class
+com\mycompany\coursemanagement\Notice.class
+com\mycompany\coursemanagement\User.class
+com\mycompany\coursemanagement\Course.class
+com\mycompany\coursemanagement\Grade.class
+com\mycompany\coursemanagement\Coursemanagement.class
