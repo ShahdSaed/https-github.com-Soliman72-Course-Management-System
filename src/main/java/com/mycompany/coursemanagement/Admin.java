@@ -20,6 +20,23 @@ public class Admin extends User {
         super(name, email, password);
     }
 
+    public static List<Student> getStudents() {
+        return students;
+    }
+
+    public static List<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public static List<Course> getCourses() {
+        return courses;
+    }
+
+    public static List<Notice> getNotices() {
+        return notices;
+    }
+
+    
    // Add a new student
     public void addStudent(Student student) {
         students.add(student);

@@ -25,6 +25,7 @@ public class Teacher extends User {
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
     }
+    
 
     public String getSpecialty() {
         return specialty;
@@ -73,11 +74,13 @@ public class Teacher extends User {
 
     // Assign a grade for an assignment to a student
     public void assignGrade(Assignment assignment, Grade grade, Student student) {
+        System.out.println("Assigning grade " + grade.getGrade() + " to student " + student.getName() + " for assignment " + assignment.getTitle());
         student.addGrade(assignment, grade);
     }
 
-    // Set assignment grade of a student
+    // Set assignment grade for a student
     public void setAssignmentGradeOfStudent(Assignment assignment, Grade grade, Student student) {
+        System.out.println("Setting grade " + grade.getGrade() + " for student " + student.getName() + " in assignment " + assignment.getTitle());
         student.addGrade(assignment, grade);
     }
 

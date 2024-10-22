@@ -89,6 +89,11 @@ public class Student extends User {
         }
     }
 
+        // Add grade for a course
+    public void addCourseGrade(Course course, Grade grade) {
+        courseGrade.put(course, grade);
+    }
+    
     // Enroll the student in a new course
     public void enrollCourse(Course course) {
         courses.add(course);

@@ -119,6 +119,32 @@ public class Course {
             System.out.println(notice.getTitle());
         }
     }
+    
+     public void viewCourseDetails() {
+        System.out.println("Course Name: " + getCourseName());
+        System.out.println("Teacher: " + (teacher != null ? teacher.getName() : "No Teacher Assigned"));
+        System.out.println("Description: " + getDescription());
+        System.out.println("Price: $" + getPrice());
+        System.out.println("Time: " + getTimePeriod());
+
+        // View students enrolled in the course
+        System.out.println("Students enrolled in course: " + getCourseName());
+        for (Student student : students) {
+            System.out.println(student.getName());
+        }
+
+        // View assignments in the course
+        System.out.println("Assignments for course: " + getCourseName());
+        for (Assignment assignment : assignments) {
+            System.out.println(assignment.getTitle());
+        }
+
+        // View notices in the course
+        System.out.println("Notices for course: " + getCourseName());
+        for (Notice notice : notices) {
+            System.out.println(notice.getTitle());
+        }
+    }
 
     // Additional method: Remove a student from the course
 //    public void removeStudent(Student student) {
