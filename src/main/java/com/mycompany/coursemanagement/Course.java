@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coursemanagement;
+package java_project;
 
 import java.time.LocalTime;
 import java.util.*;
@@ -14,20 +14,22 @@ public class Course {
     private String description;
     private double price;
     private LocalTime timePeriod;
-    private List<Student> students;
-    private List<Assignment> assignments;
-    private List<Notice> notices;
+    private ArrayList<Student> students;
+    private ArrayList<Assignment> assignments;
+    private ArrayList<Notice> notices;
 
     // Constructor
     public Course(String name, Teacher teacher, String description, double price, LocalTime timePeriod) {
         this.name = name;
         this.teacher = teacher;
+        
         this.description = description;
         this.price = price;
         this.timePeriod = timePeriod;
         this.students = new ArrayList<>();
         this.assignments = new ArrayList<>();
         this.notices = new ArrayList<>();
+//        teacher.addCourses(this);
     }
 
     // Setters and Getters
@@ -119,6 +121,32 @@ public class Course {
             System.out.println(notice.getTitle());
         }
     }
+    
+     public void viewCourseDetails() {
+        System.out.println("Course Name: " + getCourseName());
+        System.out.println("Teacher: " + (teacher != null ? teacher.getName() : "No Teacher Assigned"));
+        System.out.println("Description: " + getDescription());
+        System.out.println("Price: $" + getPrice());
+        System.out.println("Time: " + getTimePeriod());
+
+        // View students enrolled in the course
+        System.out.println("Students enrolled in course: " + getCourseName());
+        for (Student student : students) {
+            System.out.println(student.getName());
+        }
+
+        // View assignments in the course
+        System.out.println("Assignments for course: " + getCourseName());
+        for (Assignment assignment : assignments) {
+            System.out.println(assignment.getTitle());
+        }
+
+        // View notices in the course
+        System.out.println("Notices for course: " + getCourseName());
+        for (Notice notice : notices) {
+            System.out.println(notice.getTitle());
+        }
+    }
 
     // Additional method: Remove a student from the course
 //    public void removeStudent(Student student) {
@@ -150,4 +178,3 @@ public class Course {
 //        }
 //    }
 }
-
