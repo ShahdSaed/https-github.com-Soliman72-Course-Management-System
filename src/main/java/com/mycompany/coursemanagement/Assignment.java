@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coursemanagement;
+package java_project;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ public class Assignment {
     private String description;
     private String title;
     private Date deadline;
+    private String courseName;
 
     // Constructor
     public Assignment(int ID, String description, String title, Date deadline) {
@@ -38,6 +39,10 @@ public class Assignment {
         return deadline;
     }
 
+    public String getCourseName() {
+        return courseName;
+    }
+    
     // Display assignment details
     public void displayAssignmentDetails() {
         System.out.println("Assignment ID: " + ID);
