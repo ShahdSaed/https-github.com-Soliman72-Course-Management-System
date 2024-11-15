@@ -2,24 +2,48 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.coursemanagement;
+package java_project;
 
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java_project.Course;
+import java_project.Notice;
+import java_project.Student;
+import java_project.Teacher;
 
 public class Admin extends User {
-    // Static lists to hold all instances of teachers, students, courses, and notices
-    public static List<Teacher> teachers = new ArrayList<>();
-    private static List<Student> students = new ArrayList<>();
-    private static List<Course> courses = new ArrayList<>();
-    private static List<Notice> notices = new ArrayList<>();
+    // Static lists to hold all instLocalTimeances of teachers, students, courses, and notices
+    public static ArrayList<Teacher> teachers = new ArrayList<>();
+    private static ArrayList<Student> students = new ArrayList<>();
+    private static ArrayList<Course> courses = new ArrayList<>();
+    private static ArrayList<Notice> notices = new ArrayList<>();
 
     // Constructor
     public Admin(String name, String email, String password) {
         super(name, email, password);
     }
 
+    public static ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public static ArrayList<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public static ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    public static ArrayList<Notice> getNotices() {
+        return notices;
+    }
+
+    
    // Add a new student
     public void addStudent(Student student) {
         students.add(student);
@@ -136,6 +160,57 @@ public class Admin extends User {
         System.out.println("List of Notices:");
         for (Notice notice : notices) {
             System.out.println(notice.getTitle());
+        }
+    }
+    public void logIn(String email,String password){
+        FileManagement fileManager = new FileManagement();
+        try {
+            ArrayList<Student> students = fileManager.readFromFile("students.txt", line -> {
+                String[] parts = line.split(",");
+                
+                // Ensure the data has exactly 3 parts (name, email, password)
+                if (parts.length >0) {
+                    return new Student(parts[0], parts[1], parts[2]);
+                } else {
+                    // Log error message for invalid data
+                    System.err.println("Invalid student data: " + Arrays.toString(parts));
+                    return null;  // Handle invalid data (e.g., skip this entry)
+                }
+                
+            }); 
+            for(Student student : students){
+                if(email==student.getEmail()&&password==student.getPassword())
+                    System.out.println(student.getName()+"Logged in");
+                else
+                    System.out.println("Incorrect Email or Password");
+            }
+        }catch (IOException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void logOut(){
+        FileManagement fileManager = new FileManagement();
+        try {
+            ArrayList<Student> students = fileManager.readFromFile("students.txt", line -> {
+                String[] parts = line.split(",");
+                
+                // Ensure the data has exactly 3 parts (name, email, password)
+                if (parts.length >0) {
+                    return new Student(parts[0], parts[1], parts[2]);
+                } else {
+                    // Log error message for invalid data
+                    System.err.println("Invalid student data: " + Arrays.toString(parts));
+                    return null;  // Handle invalid data (e.g., skip this entry)
+                }
+                
+            }); 
+            for(Student student : students){
+                
+                    
+            }
+        }catch (IOException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
